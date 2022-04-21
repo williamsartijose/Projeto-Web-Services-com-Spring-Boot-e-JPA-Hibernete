@@ -4,13 +4,13 @@
 
 # Objetivos
 
-. Criar projeto Spring Boot Java
-. Implementar modelo de domínio
-. Estruturar camadas lógicas: resource, service, repository
-. Configurar banco de dados de teste (H2)
-. Povoar o banco de dados
-. CRUD - Create, Retrieve, Update, Delete
-. Tratamento de exceções
+- Criar projeto Spring Boot Java
+- Implementar modelo de domínio
+- Estruturar camadas lógicas: resource, service, repository
+- Configurar banco de dados de teste (H2)
+- Povoar o banco de dados
+- CRUD - Create, Retrieve, Update, Delete
+- Tratamento de exceções
 
 
 #### Tecnologias utilizadas  
@@ -34,29 +34,29 @@
 #### Project created 
 
 Checklist:
- File -> New -> Spring Starter Project
-o Maven
-o Java 11
-o Packing JAR
-o Dependencies: Spring Web Starter
+- File -> New -> Spring Starter Project
+- Maven
+- Java 11
+- Packing JAR
+- Dependencies: Spring Web Starter
 
 #### User entity and resource 
 
 
 Basic entity checklist:
- Basic attributes
- Associations (instantiate collections)
- Constructors
- Getters & Setters (collections: only get)
- hashCode & equals
- Serializable
+- Basic attributes
+- Associations (instantiate collections)
+- Constructors
+- Getters & Setters (collections: only get)
+- hashCode & equals
+- Serializable
 
 #### H2 database, test profile, JPA 
 Checklist:
- JPA & H2 dependencies
- application.properties
- application-test.properties
- Entity: JPA mapping
+- JPA & H2 dependencies
+- application.properties
+- application-test.properties
+- Entity: JPA mapping
 
 Dependencies:
 <dependency>
@@ -85,11 +85,11 @@ spring.jpa.properties.hibernate.format_sql=true
 
 
 Checklist:
- UserRepository extends JPARepository<User, Long>
- Configuration class for "test" profile
- @Autowired UserRepository
- Instantiate objects in memory
- Persist objects
+- UserRepository extends JPARepository<User, Long>
+- Configuration class for "test" profile
+- @Autowired UserRepository
+- Instantiate objects in memory
+- Persist objects
 Objects:
 User u1 = new User(null, "William Sarti", "williamsartijose@gmail.com", "988888888", "123456");
 User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
@@ -98,12 +98,12 @@ User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
 Order, Instant, ISO 8601
 Basic new entity checklist:
- Entity
-o "To many" association, lazy loading, JsonIgnore
- Repository
- Seed
- Service
- Resource
+- Entity
+- "To many" association, lazy loading, JsonIgnore
+- Repository
+- Seed
+- Service
+- Resource
 Objects:
 Order o1 = new Order(null, Instant.parse("2019-06-20T19:53:07Z"), u1);
 Order o2 = new Order(null, Instant.parse("2019-07-21T03:42:10Z"), u2);
