@@ -1,7 +1,5 @@
 # Projeto web services com Spring Boot e JPA / Hibernate
 
-# Praticando-Logicas-Java William Sarti José
-
 # Objetivos
 
 - Criar projeto Spring Boot Java
