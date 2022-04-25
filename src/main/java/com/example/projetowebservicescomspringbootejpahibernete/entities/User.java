@@ -1,12 +1,11 @@
 package com.example.projetowebservicescomspringbootejpahibernete.entities;
 
-import org.springframework.core.annotation.Order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -20,6 +19,11 @@ public class User implements Serializable {
     private String email;
     private String phone;
     private String password;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
+
 
     public User(){
 
@@ -97,5 +101,9 @@ public class User implements Serializable {
         } else if (!id.equals(other.id))
             return false;
         return true;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 }
