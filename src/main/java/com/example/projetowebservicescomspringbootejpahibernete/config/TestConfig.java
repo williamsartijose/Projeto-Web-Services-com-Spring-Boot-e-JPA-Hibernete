@@ -2,6 +2,7 @@ package com.example.projetowebservicescomspringbootejpahibernete.config;
 
 import com.example.projetowebservicescomspringbootejpahibernete.entities.Order;
 import com.example.projetowebservicescomspringbootejpahibernete.entities.User;
+import com.example.projetowebservicescomspringbootejpahibernete.entities.enums.OrderStatus;
 import com.example.projetowebservicescomspringbootejpahibernete.repositories.OrderRepository;
 import com.example.projetowebservicescomspringbootejpahibernete.repositories.UserRepository;
 
@@ -33,9 +34,9 @@ public class TestConfig implements CommandLineRunner {
         User u3 = new User(null, "William Sarti", "williamsarti@gmail.com", "977777777", "123456");
 
 
-        Order o1 = new Order(null, Instant.parse("2022-06-20T19:53:07Z"), u1);
-        Order o2 = new Order(null, Instant.parse("2022-07-21T03:42:10Z"), u2);
-        Order o3 = new Order(null, Instant.parse("2022-07-14T15:21:22Z"), u1);
+        Order o1 = new Order(null, Instant.parse("2022-06-20T19:53:07Z"), OrderStatus.PAID, u1);
+        Order o2 = new Order(null, Instant.parse("2022-07-21T03:42:10Z"), OrderStatus.WAITING_PAYMENT, u2);
+        Order o3 = new Order(null, Instant.parse("2022-07-14T15:21:22Z"),OrderStatus.WAITING_PAYMENT, u1);
 
 
         userRepository.saveAll(Arrays.asList(u1, u2 , u3));
