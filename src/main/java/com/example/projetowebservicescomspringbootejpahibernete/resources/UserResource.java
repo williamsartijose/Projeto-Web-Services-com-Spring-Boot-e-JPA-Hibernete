@@ -3,6 +3,7 @@ package com.example.projetowebservicescomspringbootejpahibernete.resources;
 import com.example.projetowebservicescomspringbootejpahibernete.entities.User;
 import com.example.projetowebservicescomspringbootejpahibernete.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -37,5 +38,11 @@ public class UserResource {
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(obj.getId()).toUri();
         return ResponseEntity.created(uri).body(obj);
+    }
+    //DELETE - Deletar  dados no banco de dados
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        service.delete(id);
+        return  ResponseEntity.noContent().build();
     }
 }
